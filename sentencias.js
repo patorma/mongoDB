@@ -63,3 +63,16 @@ db.users.find(
     }
 ).pretty()
 
+// find > documento
+// El metodo .findOne() no incluye .pretty() 
+// obtiene el primer elemento que cumpla con la condicion
+
+db.users.findOne(
+    {
+        age: {
+            $ne: 25
+        }
+    }
+)
+
+
