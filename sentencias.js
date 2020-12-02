@@ -16,6 +16,13 @@ let user3 = {
     email: 'uriel@codigofacilito.com'
 }
 
+let user0 = {
+    name: 'Ivan',
+    last_name: 'Torres',
+    age:26,
+    email: 'ivanko@gmail.com'
+}
+
 let user4 = {
     name: 'Marines',
     last_name: 'Médez',
@@ -75,4 +82,51 @@ db.users.findOne(
     }
 )
 
+// operadores relacionales
+// Obtener todos los usuarios cuya edad sea mayor a 20
+
+// db.users.find(
+//     {
+//         age: {
+//             $gt: 20 // >
+//         }
+//     }   
+// ) 
+
+// Obtener todos los usuarios cuya edad sea mayor igual a 26
+
+// db.users.find(
+//         {
+//             age: {
+//                 $gte: 26 // >=
+//             }
+//         }   
+//     ) 
+
+// Obtener todos los usuarios cuya edad sea menor igual a 26
+
+db.users.find(
+    {
+        age: {
+            $lte: 26 // <=
+        }
+    }   
+) 
+
+// Obtener todos los usuarios cuya edad sea menor a 26
+
+db.users.find(
+    {
+        age: {
+            $lt: 26 // <
+        }
+    }   
+) 
+
+// $gt >
+// $gte >=
+// $lt <
+// $lte <= 
+// $eq ==
+// $ne !=
 
