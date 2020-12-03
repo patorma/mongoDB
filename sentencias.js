@@ -130,3 +130,56 @@ db.users.find(
 // $eq ==
 // $ne !=
 
+// Operadores Lógicos
+// $and y el $or
+
+// Obtener todos los usuarios cuya edad sea mayor a 20  y menor a 26 
+db.users.find(
+    {
+        $and: [
+            {
+                age: {$gt: 20}
+            },
+            {
+                age: {$lt: 26}
+            }
+        ]
+    }
+).pretty()
+
+// Obtener todos los usuarios cuyo nombre sea Patrico o Uriel
+db.users.find(
+    {
+        $or: [
+            {
+                name: 'Patricio Torres'
+            },
+            {
+                name: 'Uriel'
+            }
+        ]
+    }
+)
+
+// Obtener todos los usuarios cuyo nombre sea Patricio Torres o Uriel o la edad sea mayor a 20 y menor a 25
+
+db.users.find(
+    {
+        $or: [
+            {
+                name: 'Patricio Torres'
+            },
+            {
+                name: 'Uriel'
+            },
+            {
+                $and: [
+                    {age: {$gt: 20}},
+                    {age: {$lt: 25}}
+                ]
+            }
+        ]
+    }
+)
+
+
