@@ -211,3 +211,36 @@ db.books.find(
         title: /la/
     }
 )
+
+// ----Búsqueda dentro de listas---------------
+// Obtener todos los usuarios cuyo nombre sea Patricio o Uriel o Marines
+db.users.find({
+    $or: [
+      {
+        name: "Patricio",
+      },
+      {
+        name: "Uriel",
+      },
+      {
+        name: 'Marines'
+      },
+    ],
+  })
+
+  // $in permite buscar valores dentro de una lista
+
+  db.users.find({
+    
+    name: {
+        $in: ['Patricio','Uriel','Marines','Rafael']
+    }
+  })
+
+  // $nin es lo contrario a $in  
+  db.users.find({
+    
+    name: {
+        $nin: ['Patricio','Uriel','Marines','Rafael']
+    }
+  })
